@@ -51,7 +51,7 @@ jobs:
     - name: Build Docker image
       run: docker build -t resortmanagement:latest .
     - name: Push Docker image to registry
-      run: docker push resortmanagement:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/resortmanagement:latest
   
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
