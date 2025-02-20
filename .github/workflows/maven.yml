@@ -47,8 +47,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Submit dependency graph (Alternative)
+    - name: Upload Dependency Snapshot (Alternative)
       run: mvn dependency:tree -DoutputFile=dependency-graph.txt
+    - name: Upload Dependency File
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-graph
+        path: dependency-graph.txt  
  
     - name: Login to Docker registry(using secrets)
       env:
