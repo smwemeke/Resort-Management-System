@@ -40,8 +40,7 @@ jobs:
         COPY target/*.jar app.jar
 
         # Run the application
-        CMD ["java", "-jar", "app.jar"]
-        EOF    
+        CMD ["java", "-jar", "app.jar"]   
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Login to Docker registry(using secrets)
