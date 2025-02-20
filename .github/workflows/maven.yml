@@ -46,6 +46,11 @@ jobs:
         CMD ["java", "-jar", "app.jar"]   
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Submit dependency graph
+      uses: advanced-security/maven-dependency-submission-action@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}  
     - name: Login to Docker registry(using secrets)
       env:
        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
